@@ -1,1 +1,1 @@
-The Second try to learn how to use git!
+根据输入字之间时间间隔将输入顺序反置,已达到混淆的效果。
