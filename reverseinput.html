@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        let h=0;
+        let i=0;
+        let j=0;
+        let k=0;
+        let m=0;
+        let l=0;
+        let n=[];
+        let v=0;
+        const change=setInterval(wee,200)
+        function wee(){
+            j++;
+            let inputcontent=document.getElementById("chos").value;
+            let intext=inputcontent.split('');
+            h=intext.length;
+            if(h>i & j-k>1){
+                if(v==0){
+                    let vcc=intext.slice(i,h);
+                    intext=intext.slice(0,h-(h-i));
+                    vcc.reverse();
+                    let vdd=vcc.join('');
+                    intext.splice(intext.length,0,vdd);
+                    let gnd=intext.join('');
+                    document.getElementById("chos").value=gnd;
+                    n=gnd.split('');
+                }
+                else if(v!=0){
+                    for(let e=0;e<intext.length;e++){
+                        if(intext[e]!=n[e]){
+                            m=e;
+                            e=intext.length;
+                        }
+                    }
+                    let vss=intext.slice(0,m);
+                    let pgnd=intext.slice(m,m+(h-i));
+                    let sgnd=intext.slice(h-i+m,h);
+                    pgnd.reverse();
+                    let vdd=pgnd.join('');
+                    vss.splice(vss.length,0,vdd);
+                    let agnd=sgnd.join('');
+                    vss.splice(vss.length,0,agnd);
+                    let gnd=vss.join('');
+                    document.getElementById("chos").value=gnd;
+                    n=gnd.split('');
+                    v=0;
+                }
+                i=h;
+                k=j;
+            }
+            else if(h<i){
+                i=h;
+                v=1;
+            }
+            else{}
+            
+        };
+        </script>
+    <style>
+    #chos{
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 96%;
+        font-size: 2em;
+        min-height: 25em;
+        text-align: left;
+    }
+    </style>
+</head>
+<body>
+<textarea id="chos"></textarea>
+</body>
+</html>
